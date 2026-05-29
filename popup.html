@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LeetCode Nudge</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        width: 280px;
+        padding: 16px;
+        margin: 0;
+      }
+
+      h2 {
+        font-size: 15px;
+        margin: 0 0 12px;
+      }
+
+      label {
+        display: block;
+        font-size: 13px;
+        margin-bottom: 4px;
+        color: #555;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        font-size: 13px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+      }
+
+      button {
+        width: 100%;
+        padding: 8px;
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #1d4ed8;
+      }
+
+      #status {
+        font-size: 12px;
+        margin-top: 8px;
+        color: #16a34a;
+        min-height: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>LeetCode Nudge</h2>
+
+    <label for="api-key">Anthropic API Key</label>
+    <input type="password" id="api-key" placeholder="sk-ant-..." />
+
+    <button id="save-btn">Save</button>
+    <div id="status"></div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

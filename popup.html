@@ -57,9 +57,22 @@
     </style>
   </head>
   <body>
-    <h2>LeetCode Nudge</h2>
+    <h2>BreadCrumb AI</h2>
 
-    <label for="api-key">Anthropic API Key</label>
+    <label for="provider">Provider</label>
+    <select id="provider" style="
+      width: 100%;
+      padding: 8px;
+      font-size: 13px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    ">
+      <option value="groq">Groq — Llama 3 (free)</option>
+      <option value="gemini">Google Gemini (free)</option>
+    </select>
+    <label for="api-key">Paste API Key</label>
     <input type="password" id="api-key" placeholder="sk-ant-..." />
 
     <button id="save-btn">Save</button>

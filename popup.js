@@ -1,21 +1,27 @@
-// popup.js
-// Runs inside the popup window — completely separate JS context from content.js.
-// The only way these two contexts share data is through chrome.storage.
+/*
+  * popup.js
+  * Runs inside the popup window — completely separate JS context from content.js.
+  * The only way these two contexts share data is through chrome.storage.
+*/
 
-const apiKeyInput = document.getElementById('api-key');
-const saveBtn = document.getElementById('save-btn');
-const statusEl = document.getElementById('status');
+const apiKeyInput   = document.getElementById('api-key');
+const saveBtn       = document.getElementById('save-btn');
+const statusEl      = document.getElementById('status');
+const providerSelect = document.getElementById('provider');
 
-// When the popup opens, load any previously saved key and show it.
-chrome.storage.local.get('apiKey', (result) => {
+// restore both saved values, if available
+chrome.storage.local.get(['apiKey', 'provider'], (result) => {
   if (result.apiKey) {
     apiKeyInput.value = result.apiKey;
   }
+  if (result.provider) {
+    providerSelect.value = result.provider;
+  }
 });
 
-// When the user clicks Save, store the key.
 saveBtn.addEventListener('click', () => {
-  const key = apiKeyInput.value.trim();
+  const key      = apiKeyInput.value.trim();
+  const provider = providerSelect.value;
 
   if (!key) {
     statusEl.textContent = 'Please enter a key.';
@@ -23,17 +29,10 @@ saveBtn.addEventListener('click', () => {
     return;
   }
 
-  // chrome.storage.local is like localStorage but:
-  // - shared across all extension contexts (popup, content script, background)
-  // - persists across browser sessions
-  // - async (callback-based or Promise-based)
-  chrome.storage.local.set({ apiKey: key }, () => {
+  // save chosen key and provider
+  chrome.storage.local.set({ apiKey: key, provider }, () => {
     statusEl.textContent = '✓ Saved!';
     statusEl.style.color = '#16a34a';
-
-    // Clear the confirmation after 2 seconds, runs a function in future
-    setTimeout(() => {
-      statusEl.textContent = '';
-    }, 2000);
+    setTimeout(() => { statusEl.textContent = ''; }, 2000);
   });
 });

@@ -1,20 +1,24 @@
 {
   "manifest_version": 3,
-  "name": "LeetCode Nudge",
+  "name": "BreadCrumb - Leetcode Hints",
   "version": "1.0.0",
-  "description": "Hints for LeetCode problems without giving away the answer.",
+  "description": "Just enough hints to keep you rolling!",
 
   "permissions": ["storage"],
-  "host_permissions": ["https://leetcode.com/*"],
-
+  "host_permissions": [
+    "https://leetcode.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.groq.com/*"
+  ],
+  
   "action": {
     "default_popup": "popup.html",
-    "default_title": "LeetCode Nudge"
+    "default_title": "BreadCrumb-AI"
   },
 
   "content_scripts": [
     {
-      "js": ["content.js"],
+      "js": ["prompt.js", "ui.js", "content.js"],
       "matches": ["https://leetcode.com/problems/*"],
       "run_at": "document_idle"
     }

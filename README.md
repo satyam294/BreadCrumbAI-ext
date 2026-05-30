@@ -43,5 +43,16 @@ Not enough? Hit "Still hungry?" for the next crumb.
 Your API key is stored locally in your browser only.
 No data is collected or sent anywhere except your chosen AI provider.
 
-![BreadCrumb hint card showing on a LeetCode problem](demo-images/demo1.png)
-![BreadCrumb in action: Subtle, question specific hints](demo-images/demo2.png)
+## Demo
+
+<p align="center">
+  <img src="demo-images/demo1.png" width="700">
+  <br>
+  <em>BreadCrumb hint card showing on a LeetCode problem</em>
+</p>
+
+<p align="center">
+  <img src="demo-images/demo2.png" width="700">
+  <br>
+  <em>BreadCrumb in action: Subtle, question-specific hints</em>
+</p>
